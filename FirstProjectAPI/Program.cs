@@ -1,4 +1,19 @@
+using FirstProjectAPI.Database;
+using FirstProjectAPI.Repositories;
+using FirstProjectAPI.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// ----- SETUP EF DATABASE CONTEXT -----
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// ----- REGISTER REPOSITORIES -----
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+// ----- REGISTER SERVICES -----
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // Add services to the container.
 

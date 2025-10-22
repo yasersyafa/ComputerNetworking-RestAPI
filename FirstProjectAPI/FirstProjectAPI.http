@@ -4,3 +4,44 @@ GET {{FirstProjectAPI_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+# ===== PRODUCT CRUD ENDPOINTS =====
+
+### Get all products
+GET {{FirstProjectAPI_HostAddress}}/api/product
+Accept: application/json
+
+###
+
+### Get product by ID
+GET {{FirstProjectAPI_HostAddress}}/api/product/{{productId}}
+Accept: application/json
+
+###
+
+### Create a new product
+POST {{FirstProjectAPI_HostAddress}}/api/product
+Content-Type: application/json
+
+{
+  "name": "Laptop Gaming ROG",
+  "description": "Laptop gaming dengan spesifikasi tinggi untuk gaming dan development"
+}
+
+###
+
+### Update a product
+PUT {{FirstProjectAPI_HostAddress}}/api/product/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Laptop Gaming ROG Updated",
+  "description": "Laptop gaming dengan spesifikasi tinggi - Updated version"
+}
+
+###
+
+### Delete a product
+DELETE {{FirstProjectAPI_HostAddress}}/api/product/{{productId}}
+
+###
